@@ -1,2 +1,16 @@
-:hopefully this will be the beginning of something amazing!
+.MODEL SMALL
+.STACK
+.DATA
+    Message DB "Hello World!$"
+.CODE
+MAIN:
+    MOV DX,OFFSET Message ;Offset of Message is in DX
+    MOV AX,SEG Message ;Segment of Message is in AX
+    MOV DS,AX ;DS:DX points to string
 
+    MOV AH,SD ;Function 9D displays string
+    INT 21H ;Calls the software interrupt/DOS service
+
+    MOV AH, 4CH ;code to terminate the program
+    INT 21H ;calls DOS service
+END MAIN
