@@ -1,8 +1,8 @@
 .MODEL SMALL
-.STACK:
-.DATA:
+.STACK
+.DATA
     Message DB "Hello World!$"
-.CODE:
+.CODE
 MAIN:
     MOV DX,OFFSET Message ;Offset of Message is in DX
     MOV AX,SEG Message ;Segment of Message is in AX
@@ -13,4 +13,4 @@ MAIN:
 
     MOV AH, 4CH ;code to terminate the program
     INT 21H ;calls DOS service
-END: MAIN: 
+END MAIN
